@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
@@ -69,6 +70,64 @@ app.get('/api/interview/questions', async (req, res) => {
     res.json(questions);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Contact form route
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+
+    // Validation
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email address' });
+    }
+
+    // Create transporter
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER || 'ashishrajdevops@gmail.com',
+        pass: process.env.EMAIL_PASSWORD, // Gmail App Password
+      },
+    });
+
+    // Email content
+    const mailOptions = {
+      from: process.env.EMAIL_USER || 'ashishrajdevops@gmail.com',
+      to: 'ashishrajdevops@gmail.com',
+      subject: 'DevOps Learning Hub',
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><small>This email was sent from the DevOps Learning Hub contact form.</small></p>
+      `,
+      replyTo: email,
+    };
+
+    // Send email
+    await transporter.sendMail(mailOptions);
+
+    res.json({ 
+      success: true, 
+      message: 'Your message has been sent successfully!' 
+    });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ 
+      error: 'Failed to send message. Please try again later.' 
+    });
   }
 });
 

@@ -1,6 +1,17 @@
 # DevOps Learning Hub
 
-A comprehensive one-stop learning platform for DevOps tools, projects, and interview preparation.
+This is a comprehensive DevOps Learning Hub built using Next.js 14 for the frontend and Express.js for the backend with MongoDB as the database. The platform provides a one-stop solution for mastering DevOps tools, projects, and interview preparation.
+
+The system allows users to explore various DevOps topics including Linux commands, Git & GitHub, Docker, Kubernetes, CI/CD pipelines, Terraform, Ansible, AWS, and Monitoring. Users can access hands-on examples, code snippets, real-world projects, and extensive interview preparation materials with over 1000+ curated questions across different difficulty levels.
+
+The project enables learners to:
+- Browse comprehensive DevOps topics with practical examples
+- View real-world projects with complete code and documentation
+- Prepare for DevOps interviews with categorized questions (Easy, Medium, Advanced)
+- Access daily-use DevOps commands and best practices
+- Learn through interactive code examples and YAML configurations
+
+**Live Website:** [https://devops-learning-hub.netlify.app/](https://devops-learning-hub.netlify.app/)
 
 ## 🎯 Features
 

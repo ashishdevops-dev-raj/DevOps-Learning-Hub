@@ -29,6 +29,9 @@ export default function Navbar() {
             <Link href="/projects" className="text-gray-700 hover:text-primary-600 transition">
               Projects
             </Link>
+            <Link href="/roadmap" className="text-gray-700 hover:text-primary-600 transition">
+              Roadmap
+            </Link>
             <Link href="/interview" className="text-gray-700 hover:text-primary-600 transition">
               Interview Prep
             </Link>
@@ -66,6 +69,13 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Projects
+            </Link>
+            <Link 
+              href="/roadmap" 
+              className="block text-gray-700 hover:text-primary-600 transition"
+              onClick={() => setIsOpen(false)}
+            >
+              Roadmap
             </Link>
             <Link 
               href="/interview" 

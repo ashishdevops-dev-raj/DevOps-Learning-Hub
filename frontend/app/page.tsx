@@ -106,6 +106,12 @@ export default function Home() {
             Start Learning
           </Link>
           <Link 
+            href="/roadmap"
+            className="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition"
+          >
+            View Roadmap
+          </Link>
+          <Link 
             href="/projects"
             className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition"
           >

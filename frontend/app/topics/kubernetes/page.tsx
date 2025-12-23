@@ -15,27 +15,51 @@ export default function KubernetesPage() {
           <CodeBlock
             code={`# Get cluster information
 kubectl cluster-info
+kubectl cluster-info dump  # Debug info
 
 # Get nodes
 kubectl get nodes
+kubectl get nodes -o wide  # More details
+kubectl describe node node-name
 
 # Get all resources
 kubectl get all
+kubectl get all -n namespace-name
+kubectl get all --all-namespaces
 
 # Get pods
 kubectl get pods
+kubectl get pods -o wide  # Show node info
+kubectl get pods -w  # Watch mode
+kubectl get pods --show-labels  # Show labels
 
 # Get pods in namespace
 kubectl get pods -n production
+kubectl get pods -A  # All namespaces
 
 # Describe a pod
 kubectl describe pod my-pod
+kubectl describe pod my-pod -n namespace-name
 
 # View pod logs
 kubectl logs my-pod
+kubectl logs -f my-pod  # Follow logs
+kubectl logs --tail=100 my-pod  # Last 100 lines
+kubectl logs --since=1h my-pod  # Last hour
+kubectl logs -l app=myapp  # All pods with label
 
 # Execute command in pod
-kubectl exec -it my-pod -- /bin/bash`}
+kubectl exec -it my-pod -- /bin/bash
+kubectl exec my-pod -- ls /app
+kubectl exec my-pod -c container-name -- /bin/bash  # Multi-container pod
+
+# Port forwarding
+kubectl port-forward pod/my-pod 8080:80
+kubectl port-forward service/my-service 8080:80
+
+# Copy files
+kubectl cp my-pod:/path/file.txt ./file.txt
+kubectl cp ./file.txt my-pod:/path/`}
             language="bash"
             title="Basic kubectl commands"
           />
@@ -130,6 +154,91 @@ data:
   password: cGFzc3dvcmQ=  # base64 encoded`}
             language="yaml"
             title="secret.yaml"
+          />
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Deployment Operations</h2>
+        
+        <div className="mb-6">
+          <h3 className="text-xl font-medium mb-2">Scaling & Updates</h3>
+          <CodeBlock
+            code={`# Scale deployment
+kubectl scale deployment myapp --replicas=5
+
+# Update deployment image
+kubectl set image deployment/myapp nginx=nginx:1.21
+
+# Rollout management
+kubectl rollout status deployment/myapp
+kubectl rollout history deployment/myapp
+kubectl rollout undo deployment/myapp
+kubectl rollout undo deployment/myapp --to-revision=2
+
+# Restart deployment
+kubectl rollout restart deployment/myapp
+
+# Pause/Resume rollout
+kubectl rollout pause deployment/myapp
+kubectl rollout resume deployment/myapp`}
+            language="bash"
+            title="Deployment operations"
+          />
+        </div>
+
+        <div className="mb-6">
+          <h3 className="text-xl font-medium mb-2">Resource Management</h3>
+          <CodeBlock
+            code={`# Apply YAML file
+kubectl apply -f deployment.yaml
+kubectl apply -f .  # All YAML files in directory
+kubectl apply -f deployment.yaml --dry-run=client  # Dry run
+
+# Delete resource
+kubectl delete pod pod-name
+kubectl delete deployment myapp
+kubectl delete -f deployment.yaml
+
+# Edit resource
+kubectl edit deployment myapp
+kubectl edit pod pod-name
+
+# Patch resource
+kubectl patch deployment myapp -p '{"spec":{"replicas":5}}'
+
+# Label resources
+kubectl label pod pod-name environment=production
+kubectl label pod pod-name environment-  # Remove label
+
+# Get resource YAML
+kubectl get pod pod-name -o yaml
+kubectl get deployment myapp -o yaml > deployment.yaml`}
+            language="bash"
+            title="Resource operations"
+          />
+        </div>
+
+        <div className="mb-6">
+          <h3 className="text-xl font-medium mb-2">Namespace Management</h3>
+          <CodeBlock
+            code={`# Create namespace
+kubectl create namespace production
+
+# Switch context to namespace
+kubectl config set-context --current --namespace=production
+
+# Get all resources in namespace
+kubectl get all -n production
+
+# Delete all resources in namespace
+kubectl delete all --all -n production
+
+# List all namespaces
+kubectl get namespaces
+kubectl get ns  # Short form`}
+            language="bash"
+            title="Namespace operations"
           />
         </div>
       </section>
