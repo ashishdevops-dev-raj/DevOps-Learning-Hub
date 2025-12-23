@@ -6,6 +6,11 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'DevOps Learning Hub - Master DevOps Tools & Practices',
   description: 'A comprehensive learning platform for DevOps tools, projects, and interview preparation',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 }
 
 export default function RootLayout({
