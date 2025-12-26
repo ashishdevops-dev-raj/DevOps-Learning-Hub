@@ -38,6 +38,16 @@ export default function Footer() {
               </li>
               <li>
                 <a 
+                  href="https://ashishdevops-dev-raj.github.io/Portfolio/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition"
+                >
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a 
                   href="https://docs.docker.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 

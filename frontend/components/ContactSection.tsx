@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Globe } from 'lucide-react'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -126,6 +126,15 @@ export default function ContactSection() {
                 aria-label="GitHub Profile"
               >
                 <Github className="w-6 h-6" />
+              </a>
+              <a
+                href="https://ashishdevops-dev-raj.github.io/Portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                aria-label="Portfolio Website"
+              >
+                <Globe className="w-6 h-6" />
               </a>
               <a
                 href="https://twitter.com"
