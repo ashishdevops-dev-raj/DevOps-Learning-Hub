@@ -36,7 +36,7 @@ export default function GitGuidePage() {
       <div className="mb-6">
         <h2 className="text-2xl font-semibold mb-4">What is GitHub?</h2>
         <p className="text-gray-700 mb-4">
-          GitHub is a web-based platform that provides Git repository hosting, collaboration features, issue tracking, and project management tools. It's the largest host of source code in the world and serves as a central hub for open-source projects.
+          GitHub is a web-based platform that provides Git repository hosting, collaboration features, issue tracking, and project management tools. It&apos;s the largest host of source code in the world and serves as a central hub for open-source projects.
         </p>
         <div className="bg-gray-50 p-4 rounded-lg mb-4">
           <h3 className="font-semibold mb-2">Key Features:</h3>
@@ -388,7 +388,7 @@ user@machine$ git push origin main`}
           <h3 className="text-xl font-medium mb-2">1. Commit Messages</h3>
           <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>Write clear, descriptive commit messages</li>
-            <li>Use imperative mood: "Add feature" not "Added feature"</li>
+            <li>Use imperative mood: &quot;Add feature&quot; not &quot;Added feature&quot;</li>
             <li>Keep first line under 50 characters</li>
             <li>Add detailed description for complex changes</li>
           </ul>

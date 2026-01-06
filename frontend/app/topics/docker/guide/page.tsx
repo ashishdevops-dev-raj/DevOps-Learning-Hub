@@ -19,7 +19,7 @@ export default function DockerGuidePage() {
       <div className="mb-6">
         <h2 className="text-2xl font-semibold mb-4">What is Docker?</h2>
         <p className="text-gray-700 mb-4">
-          Docker is a platform that enables developers to package applications and their dependencies into lightweight, portable containers. Containers run consistently across different environments, solving the "it works on my machine" problem.
+          Docker is a platform that enables developers to package applications and their dependencies into lightweight, portable containers. Containers run consistently across different environments, solving the &quot;it works on my machine&quot; problem.
         </p>
         <div className="bg-gray-50 p-4 rounded-lg mb-4">
           <h3 className="font-semibold mb-2">Key Benefits:</h3>
@@ -376,7 +376,7 @@ user@machine$ docker pull your-username/myapp:latest`}
           <p className="text-sm text-gray-700"><strong>💡 Tips:</strong></p>
           <ul className="list-disc list-inside text-sm text-gray-700 mt-2">
             <li>Use access tokens instead of passwords for authentication</li>
-            <li>Tag images before pushing (don't push <code>latest</code> only)</li>
+            <li>Tag images before pushing (don&apos;t push <code>latest</code> only)</li>
             <li>Use private registries for production images</li>
             <li>Enable image scanning for security vulnerabilities</li>
           </ul>
@@ -483,7 +483,7 @@ CMD ["node", "server.js"]`}
             <li>Run containers as non-root user</li>
             <li>Use minimal base images (Alpine Linux)</li>
             <li>Scan images for vulnerabilities: <code className="bg-gray-100 px-2 py-1 rounded">docker scan myapp:latest</code></li>
-            <li>Don't store secrets in images - use secrets management</li>
+            <li>Don&apos;t store secrets in images - use secrets management</li>
           </ul>
         </div>
 
