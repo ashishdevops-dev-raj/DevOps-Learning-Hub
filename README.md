@@ -13,7 +13,7 @@ The project enables learners to:
 
 **Live Website:** [https://devops-learning-hub.netlify.app/](https://devops-learning-hub.netlify.app/)
 
-## 🎯 Features
+## 🎯  Features
 
 - **Linux Commands** - Essential commands with practical examples
 - **Git & GitHub** - Workflows and best practices
